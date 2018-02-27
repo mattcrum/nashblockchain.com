@@ -1,0 +1,98 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+
+#header {
+		@include padding(9em, 0, (0,0,_size(element-margin),0));
+		@include dark(#4686a0);
+		background-attachment:	fixed,							fixed,							fixed;
+		background-image:		url('../img/overlay2.png'),		url('../img/nashville-bw.jpg'),		linear-gradient(45deg, _palette(accent1-alt) 5%, _palette(accent3-alt) 30%, _palette(accent6-alt));
+		background-position:	top left,						center center,					center center;
+		background-size:		auto,							cover,							cover;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		&:before {
+	    content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+			opacity: .6;
+	  }
+
+		h1 {
+			margin: 0;
+		}
+
+		p {
+			margin: (_size(element-margin) * 0.5) 0 0 0;
+		}
+
+		.logo {
+			width: 20vw;
+		}
+
+		.actions {
+			margin: (_size(element-margin) * 1.25) 0 0 0;
+			position: relative;
+
+			&:after {
+				background: _palette(dark, border);
+				content: '';
+				height: 100vh;
+				left: 50%;
+				position: absolute;
+				top: 100%;
+				width: 1px;
+			}
+		}
+
+		.inner {
+			@include vendor('transition', ('transform 1.5s ease', 'opacity 2s ease'));
+			@include vendor('transition-delay', '0.25s');
+			@include vendor('transform', 'scale(1)');
+			opacity: 1;
+			position: relative;
+			z-index: 1;
+
+			.actions {
+				@include vendor('transition', 'transform 1.25s ease');
+				@include vendor('transition-delay', '1s');
+				@include vendor('transform', 'translateY(0)');
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			@include vendor('transition', 'opacity 1s ease');
+			background-image: linear-gradient(45deg, _palette(accent3-alt), _palette(accent6-alt));
+			content: '';
+			height: 100%;
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	body.is-loading {
+		#header {
+			.inner {
+				@include vendor('transform', 'scale(1.05)');
+				opacity: 0;
+
+				.actions {
+					@include vendor('transform', 'translateY(30em)');
+					opacity: 0;
+				}
+			}
+
+			&:after {
+				opacity: 1;
+			}
+		}
+	}

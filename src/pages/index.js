@@ -1,5 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Logo from '../img/logo-white.svg';
+import Header from '../components/Header'
+import '../styles/main.scss';
+import '../styles/custom.scss';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -7,6 +11,8 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
+      <div>
+      <Header />
       <section className="section">
         <div className="container">
           <div className="content">
@@ -39,6 +45,7 @@ export default class IndexPage extends React.Component {
             ))}
         </div>
       </section>
+      </div>
     )
   }
 }
