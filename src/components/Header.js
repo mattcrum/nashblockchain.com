@@ -7,7 +7,7 @@ const Header = ({ gridItems }) => (
    <img className="logo" src={Logo} alt="Test" />
    <h1>A community designed to <strong>build</strong>, <strong>grow</strong>, and <strong>support</strong>
    <br /><strong> decentralized</strong> application development
-   <br />in the <strong>Music City</strong>.</h1>
+   <br /> in the <strong>Music City</strong>.</h1>
    <p>Come code with us!</p>
    <ul className="actions">
      <li><a href="#one" className="button">Mailing List</a></li>
