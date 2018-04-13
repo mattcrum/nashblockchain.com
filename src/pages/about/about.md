@@ -3,7 +3,7 @@ templateKey: about-page
 path: /about
 title: About our values
 ---
-### Mission Statement
+## Our Mission
 
 The Nashville Blockchain Developers Network aims to bootstrap a strong grassroots movement within the Nashville Metropolitan Area. Giving guidance and providing resources for aspiring developers to create new applications on blockchain technologies.
 
