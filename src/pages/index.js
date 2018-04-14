@@ -4,6 +4,8 @@ import Logo from '../img/logo-white.svg';
 import Header from '../components/Header'
 import '../styles/main.scss';
 import '../styles/custom.scss';
+import AboutPageTemplate from '../templates/about-page'
+import Content, { HTMLContent } from '../components/Content'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -15,33 +17,22 @@ export default class IndexPage extends React.Component {
       <Header />
       <section className="section">
         <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-          </div>
           {posts
-            .filter(post => post.node.frontmatter.templateKey === 'blog-post')
+            .filter(post => post.node.frontmatter.templateKey === 'about-page')
             .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={post.id}
-              >
+
                 <p>
-                  <Link className="has-text-primary" to={post.frontmatter.path}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
+                  <div dangerouslySetInnerHTML={{ __html: post.html }} />
                   <br />
                   <br />
-                  <Link className="button is-small" to={post.frontmatter.path}>
-                    Keep Reading →
-                  </Link>
+
+
+                  <ul className="actions">
+                    <li><a href="https://facebook.com/nashblockchain" target="_blank" className="button">Facebook</a></li>
+                    <li><a href="https://twitter.com/nashblockchain" target="_blank" className="button">Twitter</a></li>
+                  </ul>
+
                 </p>
-              </div>
             ))}
         </div>
       </section>
@@ -55,7 +46,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 400)
+          html
           id
           frontmatter {
             title

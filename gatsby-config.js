@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Nashville Blockchain Developers Network - NBDN',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
