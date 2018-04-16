@@ -10,8 +10,7 @@ const Header = ({ gridItems }) => (
    <br /> in the <strong>Music City</strong>.</h1>
    <p>Come code with us!</p>
    <ul className="actions">
-     <li><a href="#one" className="button">Mailing List</a></li>
-     <li><a href="#one" className="button">Meetup</a></li>
+     <li><a href="https://www.meetup.com/Nashville-Blockchain-Developers-Network" target="_blanl" className="button">Meetup</a></li>
    </ul>
  </div>
 </section>

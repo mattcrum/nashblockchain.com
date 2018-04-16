@@ -21,6 +21,8 @@ export default class IndexPage extends React.Component {
             .filter(post => post.node.frontmatter.templateKey === 'about-page')
             .map(({ node: post }) => (
 
+              <div>
+              <h2>{post.frontmatter.title}</h2>
                 <p>
                   <div dangerouslySetInnerHTML={{ __html: post.html }} />
                   <br />
@@ -33,6 +35,7 @@ export default class IndexPage extends React.Component {
                   </ul>
 
                 </p>
+                </div>
             ))}
         </div>
       </section>
